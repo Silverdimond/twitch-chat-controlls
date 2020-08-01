@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -48,15 +49,26 @@ namespace twitch_chat_controlls
             loadconf();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadconf();
+        }
 
-   
-      
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Environment.CurrentDirectory + @"\config\");
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
         void loadconf()
         {
+            up.Clear();
+            down.Clear();
+            left.Clear();
+            right.Clear();
             try
             {
                 using (StreamReader upc = new StreamReader(Environment.CurrentDirectory+@"\config\up.txt"))
